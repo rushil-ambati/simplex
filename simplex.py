@@ -6,8 +6,9 @@ constraints = lines[3:]
 
 print("Maximising " + str(eqn))
 print("Subject to:")
-for constraint in constraints:
-    print(constraint)
+for i in range(len(constraints)):
+    con_split = constraints[i].split("<=")
+    print(con_split[0] + "(+ s" + str(i+1) + ") <=" + con_split[1])
 print()
 
 params = set()
