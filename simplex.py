@@ -16,7 +16,7 @@ params = set()
 eqn_dict = {}
 eqn_terms = [x.strip() for x in eqn.split("=")[1].split("+")]
 for term in eqn_terms:
-    coeff = -int(term.split("x")[0]) if term.split("x")[0] != '' else -1
+    coeff = -float(term.split("x")[0]) if term.split("x")[0] != '' else -1
     params.add(int(term.split("x")[1]))
     eqn_dict[int(term.split("x")[1])] = coeff
 
@@ -28,7 +28,7 @@ for constraint in constraints:
     ineq_dict = {}
     ineq_dict["rhs"] = int(ineq_split[1].strip())
     for term in ineq_terms:
-        coeff = int(term.split("x")[0]) if term.split("x")[0] != '' else 1
+        coeff = float(term.split("x")[0]) if term.split("x")[0] != '' else 1
         params.add(int(term.split("x")[1]))
         ineq_dict[int(term.split("x")[1])] = coeff
     con_dicts.append(ineq_dict)
@@ -110,7 +110,7 @@ for i in range(1, 1+n_p):
         oneidx = cols[i].index(1)
         cols[i].remove(1.0)
         if len(set(cols[i])) == 1:
-            print("x" + str(i) + " = " + str(t[oneidx][len(t[0])-1]))
+            print("x" + str(i) + " = " + str(round(t[oneidx][len(t[0])-1], 4)))
         else:
             print("x" + str(i) + " = 0")
     else:
@@ -121,7 +121,7 @@ for i in range(1+n_p, len(t[0])-1):
         oneidx = cols[i].index(1)
         cols[i].remove(1.0)
         if len(set(cols[i])) == 1:
-            print("s" + str(i-n_p) + " = " + str(t[oneidx][len(t[0])-1]))
+            print("s" + str(i-n_p) + " = " + str(round(t[oneidx][len(t[0])-1], 4)))
         else:
             print("s" + str(i-n_p) + " = 0")
     else:
