@@ -1,16 +1,3 @@
-from fractions import Fraction
-
-'''
-eqn = "P = 80x1 + 31x2 + 100x3"
-constraints = ["4x1 + 2x2 + x3 <= 60",
-               "x1 + x2 + x3 <= 40",
-               "x1 <= 25",
-               "x3 <= 10"]
-eqn = "P = 2x1 + 3x2"
-constraints = ["x1 + 2x2 <= 12",
-               "3x1 + x2 <= 15",
-               "x2 <= 5"]
-'''
 # Parsing
 i_file = open('input.txt', 'r')
 lines = [x.strip() for x in i_file.readlines()]
